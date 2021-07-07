@@ -1,0 +1,45 @@
+@font-face {
+    font-family: Orbitron;
+    src: url(../fonts/Orbitron-SemiBold.ttf);
+}
+ body{
+    background: linear-gradient(to right, #5f4fa5, rgb(212, 88, 88), #9f75bb, #acf7f7);
+}
+
+html {
+    height: 100%;
+}
+
+footer{
+    text-align: center;
+}
+
+.navbar-nav{
+    font-size: 13pt;
+    font-family: Orbitron;
+}
+
+/*Inicio*/
+
+    .logo{
+        display: block;
+        margin: auto;
+        border: 5px solid transparent;
+        border-image: linear-gradient(to right, #ff8ae0, #00ffff, #3852e6, #bf5fff);
+        border-image-slice: 1;
+    }
+
+    .t4 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 68%;
+      
+      }
+
+      .t5 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 55%;
+      }

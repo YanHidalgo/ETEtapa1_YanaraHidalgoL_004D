@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% load static %}
+    <link href="{%static 'css/estilos.css'%}" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" href="{%static 'img/01.png'%}">
+    <title>Ingresando Colaborador</title>
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light baralign">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <img src="{%static 'img/01.png'%}" width="70" height="60">
+        </a>
+    
+        <div class="collapse navbar-collapse" id="opciones">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}"><img src="{%static 'img/06.png'%}" width="33" height="33"
+                  alt="">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'administracion' %}"><img src="{%static 'img/06.png'%}" width="33" height="33"
+                  alt="">administracion</a>
+            </li>
+          </ul>
+        </div>
+    
+      </nav>
+    <div class="modal-dialog text-center">
+        <div class="col-sm-15 main-section">
+          <div class="modal-content">
+        <h1>Ingresando Colaborador</h1>
+        <div class="row">
+            <form method="POST" id="form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Enviar" id="enviar">
+            </form>
+        </div>
+          </div>
+        </div>
+    </div>
+        <script>
+            function contraseña(){
+                let formulario = document.getElementById('form');
+                let rut = document.getElementById('rutColaborador').value;
+                let nombre = document.getElementById('nombreColaborador').value;
+                let pais = document.getElementById('paisColaborador').value;
+                let telefono = document.getElementById('telefColaborador').value;
+                let contraseñaFinal = document.getElementById('contraseñaColaborador');
+    
+                parte1 = rut.substr(0, 2);
+                parte1.toString();
+                parte2 = nombre.substr(0, 2);
+                parte2 = parte2.toUpperCase();
+                parte3 = pais.substr(-2, 2);
+                parte3 = parte3.toLowerCase();
+                parte4 = telefono.substr(-2, 2);
+                parte4.toString();
+                union = parte1 + parte2 + parte3 + parte4;     
+                contraseñaFinal.value = union;
+            }
+        </script>
+    </div>
+</body>
+</html>
